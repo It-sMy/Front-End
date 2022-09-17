@@ -8,7 +8,6 @@ const AWAY = "user/AWAY" as const;
 const initialState: userData = {
   userName: "",
   id: "",
-  userProfile: "",
   uid: "",
 };
 
@@ -23,15 +22,16 @@ export const userDataCheckFB = () => {
   return function (dispatch: any) {
     auth.onAuthStateChanged((user) => {
       if (user) {
+        console.log("유저정보 있음")
         dispatch(
           keepUserData({
             userName: user.displayName,
-            userProfile: "",
             id: user.email,
             uid: user.uid,
           })
         );
       } else {
+        console.log("유저정보 없음")
         dispatch(awayUserData());
       }
     });
@@ -44,7 +44,7 @@ export default function reducer(state = initialState, action: any) {
       return { ...action.userData };
     }
     case "user/AWAY": {
-      const cleanData = { userName: "", id: "", userProfile: "", uid: "" };
+      const cleanData = {};
       return {...cleanData};
     }
     default:

@@ -20,6 +20,7 @@ function App() {
       dispatch(userDataCheckFB());
     }
   }, []);
+  console.log(userData)
 
   return (
     <div className="App">

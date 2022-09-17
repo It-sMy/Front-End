@@ -34,7 +34,7 @@ export const googleSignInWithPopup = () => {
       // The signed-in user info.
       const user = result.user;
       console.log(user);
-      console.log(auth.currentUser);
+      alert(auth.currentUser?.displayName+"님 환영합니다.");
       // ...
     })
     .catch((error) => {
