@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { setIntroData } from '../../apis/data';
+import { introData } from '../../types/data';
 
 const IntroSection = () => {
 
-  const [inputIntroSection,setInputIntroSection] = useState<any>({
+  const [inputIntroSection,setInputIntroSection] = useState<introData>({
     name: '',
     stack:''
   });
@@ -39,7 +41,7 @@ const IntroSection = () => {
       <input type='text' placeholder='이름' ref={writeName_ref}
       name='name' value={name} onChange={ChangeInputIntro}/>
 
-      <button>입력</button>
+      <button onClick={()=>{setIntroData(inputIntroSection)}}>입력</button>
     </div>
   )
 }
