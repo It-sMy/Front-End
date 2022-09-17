@@ -10,7 +10,7 @@ const updateProfile = (profileData: profileData) => {
 export default function reducer(state = initialState, action: AnyAction) {
   switch (action.type) {
     case "profile/UPDATE": {
-      return { ...state, profile: action.data };
+      return { ...action.data };
     }
     default:
       return state;

@@ -10,7 +10,7 @@ const updateProject = (projectData: projectData) => {
 export default function reducer(state = initialState, action: AnyAction) {
   switch (action.type) {
     case "project/UPDATE": {
-      return { ...state, project: action.data };
+      return { ...action.data };
     }
     default:
       return state;
