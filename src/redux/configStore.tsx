@@ -4,6 +4,7 @@ import {
     applyMiddleware,
   } from "redux";
   import thunk from "redux-thunk";
+  import createPage from "./moduls/createPage";
   
   //import modules
 import users from "./modules/users"
