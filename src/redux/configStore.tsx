@@ -7,11 +7,11 @@ import {
   import createPage from "./moduls/createPage";
   
   //import modules
-
+import users from "./modules/users"
   
   const middlewares = [thunk];
   const enhancer = applyMiddleware(...middlewares);
-  const rootReducer = combineReducers({ createPage });
+  const rootReducer = combineReducers({ users });
   
   const store = createStore(rootReducer, enhancer);
 

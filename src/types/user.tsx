@@ -1,4 +1,5 @@
-export type user = {
-  userName: string;
-  userStack: "FrontEnd" | "BackEnd";
+export type userData = {
+  userName: string |null;
+  id: string | null;
+  uid: string;
 };
