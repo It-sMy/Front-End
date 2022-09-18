@@ -6,7 +6,7 @@ import Label from "../atoms/Label";
 
 interface Iprops {
   text: string;
-  fontsize?: Number;
+  fontsize?: number;
   color?: string;
   scrollHeight: number;
 //   children: JSX.Element;

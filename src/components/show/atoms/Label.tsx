@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 interface IProps{
   text:string;
-  fontSize?:Number;
+  fontSize?:number;
   color?:string;
 }
 
