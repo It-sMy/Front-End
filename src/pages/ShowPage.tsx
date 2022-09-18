@@ -1,13 +1,16 @@
 import React from 'react'
 import Label from '../components/show/atoms/Label'
 import MarkdownList from '../components/show/molecules/MarkdownList'
+import Header from '../components/show/templates/Header'
+
 
 
 
 const ShowPage = () => {
   return (
     <>
-    <MarkdownList fontSize={20} text="테스트" width={30} ></MarkdownList>
+    <Header></Header>
+    
     </>
     
   )
