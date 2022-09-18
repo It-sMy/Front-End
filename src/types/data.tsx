@@ -30,7 +30,7 @@ export type blogData = {
 
 type stackDetail = {
   stackName: string;
-  stackEXP?: "tried" | "experiencer" | "expert" | "master";
+  stackEXP?: "Tried" | "Experiencer" | "Expert" | "Master";
 };
 
 type blogDetail = {

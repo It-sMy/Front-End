@@ -1,17 +1,15 @@
 import React from "react";
-import NavBarSection from "../organisms/NavBarSection";
 
 export interface LayoutProps  { 
   children?: React.ReactNode
 }
 
-const Header = (props:LayoutProps) => {
+const Body = (props:LayoutProps) => {
   return (
     <>
-    <NavBarSection/>
       {props.children}
     </>
   );
 };
 
-export default Header;
+export default Body;
