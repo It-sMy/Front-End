@@ -1,15 +1,15 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react";
 
-const Body = () => {
-  return (
-    <Wrap id="showBody">Body</Wrap>
-  )
+export interface LayoutProps  { 
+  children?: React.ReactNode
 }
 
-export default Body
+const Body = (props:LayoutProps) => {
+  return (
+    <>
+      {props.children}
+    </>
+  );
+};
 
-const Wrap=styled.div`
-    height: 3000px;
-    background-color: green;
-`
+export default Body;
