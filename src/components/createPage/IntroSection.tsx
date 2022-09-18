@@ -1,9 +1,12 @@
+import { type } from '@testing-library/user-event/dist/type';
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { setIntroData } from '../../apis/data';
 import { introData } from '../../types/data';
 
-const IntroSection = () => {
+export type changeSectionProps = {setThisState:any}
+
+const IntroSection = ({setThisState}:changeSectionProps) => {
 
   const [inputIntroSection,setInputIntroSection] = useState<introData>({
     name: '',
@@ -33,6 +36,11 @@ const IntroSection = () => {
     console.log(inputIntroSection, "유즈effect")
   }, [inputIntroSection])
 
+  const clickIntroSendBtn = async() => {
+    await setIntroData(inputIntroSection)
+    setThisState('Profile');
+  }
+
   return (
     <div>
       <input type='text' placeholder='스택' ref={writeStack_ref}
@@ -41,7 +49,7 @@ const IntroSection = () => {
       <input type='text' placeholder='이름' ref={writeName_ref}
       name='name' value={name} onChange={ChangeInputIntro}/>
 
-      <button onClick={()=>{setIntroData(inputIntroSection)}}>입력</button>
+      <button onClick={clickIntroSendBtn}>입력</button>
     </div>
   )
 }

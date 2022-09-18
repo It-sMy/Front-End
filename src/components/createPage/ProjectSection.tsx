@@ -1,16 +1,21 @@
 import React, { useEffect, useState } from 'react';
+import { changeSectionProps } from './IntroSection';
+import { setProjectData } from '../../apis/data';
+import { projectData } from '../../types/data';
 
-const ProjectSection = () => {
+const ProjectSection = ({setThisState}:changeSectionProps) => {
 
-    const [projectSection,setProjectSection] = useState<any>({
-        title:'',
+    const [project,setProject] = useState<any>({
+        projectName:'',
         projectPeriod:'',
-        projectStack:'',
-        githubLink: '',
-        projectExplanation: '',
-        projectMainSkill: '',
-        myPart:''
+        projectStack:[],
+        projectGithubURL: '',
+        projectDescribe: '',
+        projectFunctions: [],
+        projectWhatDid:[]
     });
+
+    const [projectSection,setProjectSection] = useState<projectData>();
 
     const writeTitle_ref = React.useRef(null);
     const writeProjectPeriod_ref = React.useRef(null);
@@ -20,8 +25,8 @@ const ProjectSection = () => {
     const writeProjectMainSkill_ref = React.useRef(null);
     const writeMyPart_ref = React.useRef(null);
 
-    const { title, projectPeriod, projectStack, githubLink,
-        projectExplanation, projectMainSkill, myPart } = projectSection;
+    const { projectName, projectPeriod, projectStack, projectGithubURL,
+        projectDescribe, projectFunctions, projectWhatDid } = project;
 
     const ChangeInputProfile = (e:any) => {
         const { value, name } = e.target; // 우선 e.target 에서 name 과 value 를 추출
@@ -30,10 +35,12 @@ const ProjectSection = () => {
             [name]: value // name 키를 가진 값을 value 로 설정
         }
 
-        setProjectSection(dataTitleAndContent)
+        setProject(dataTitleAndContent)
+        setProjectSection([{...project}])
         // dispatch(selectWrite({ [name]: value }))
 
         console.log(projectSection)
+        console.log(project)
         console.log(name)
     }
 
@@ -41,10 +48,15 @@ const ProjectSection = () => {
         console.log(projectSection, '마지막 e 안찍힘 방지')
     }, [projectSection])
 
+    const clickProjectSendBtn = async() => {
+        // await setProjectData(projectSection)
+        setThisState('Project');
+    }
+
   return (
     <div>
       <input type='text' placeholder='프로젝트 제목' ref={writeTitle_ref}
-      name='title' value={title} onChange={ChangeInputProfile}/>
+      name='projectName' value={projectName} onChange={ChangeInputProfile}/>
 
       <input type='text' placeholder='프로젝트 기간' ref={writeProjectPeriod_ref}
       name='projectPeriod' value={projectPeriod} onChange={ChangeInputProfile}/>
@@ -53,18 +65,18 @@ const ProjectSection = () => {
       name='projectStack' value={projectStack} onChange={ChangeInputProfile}/>
 
       <input type='text' placeholder='깃헙링크' ref={writeGithubLink_ref}
-      name='githubLink' value={githubLink} onChange={ChangeInputProfile}/>
+      name='projectGithubURL' value={projectGithubURL} onChange={ChangeInputProfile}/>
       
       <input type='text' placeholder='프로젝트 설명' ref={writeProjectExplanation_ref}
-      name='projectExplanation' value={projectExplanation} onChange={ChangeInputProfile}/>
+      name='projectDescribe' value={projectDescribe} onChange={ChangeInputProfile}/>
       
       <input type='text' placeholder='프로젝트 주요 기능' ref={writeProjectMainSkill_ref}
-      name='projectMainSkill' value={projectMainSkill} onChange={ChangeInputProfile}/>
+      name='projectFunctions' value={projectFunctions} onChange={ChangeInputProfile}/>
       
       <input type='text' placeholder='나의 역할' ref={writeMyPart_ref}
-      name='myPart' value={myPart} onChange={ChangeInputProfile}/>
+      name='projectWhatDid' value={projectWhatDid} onChange={ChangeInputProfile}/>
       
-      <button>입력</button>
+      <button onClick={clickProjectSendBtn}>입력</button>
     </div>
   )
 }
