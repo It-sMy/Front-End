@@ -6,11 +6,11 @@ import Logo from "../molecules/Logo";
 import ScrollLabel from "../molecules/ScrollLabel";
 
 const Header = () => {
-  const scrollLabelList: Array<string> = [
-    "profile",
-    "Skills",
-    "Blogs",
-    "Project",
+  const scrollLabelList:Array<any> = [
+    { text: "profile", scrollHeight: 89 },
+    { text: "Skills", scrollHeight: 523 },
+    { text: "Blogs", scrollHeight: 837 },
+    { text: "Project", scrollHeight: 1320 },
   ];
   return (
     <Wrap>
@@ -21,16 +21,15 @@ const Header = () => {
         {scrollLabelList.map((v, i) => (
           <ScrollLabel
             key={i}
-            text={v}
-            scrollHeight={16}
+            text={v.text}
+            scrollHeight={v.scrollHeight}
             color="#8CC9EB"
           ></ScrollLabel>
         ))}
       </WrapScrollLabel>
       <LocationLogin>
-      <Label text="로그인" fontSize={13} color="#A8C4D3"></Label>
+        <Label text="로그인" fontSize={13} color="#A8C4D3"></Label>
       </LocationLogin>
-      
     </Wrap>
   );
 };
@@ -38,9 +37,9 @@ const Header = () => {
 export default Header;
 
 const Wrap = styled(FlexRowDiv)`
-width: 852px;
-justify-content: center;
-align-items: center;
+  width: 852px;
+  justify-content: center;
+  align-items: center;
 `;
 const LocationLogo = styled.div`
   margin-left: 58px;
@@ -51,7 +50,7 @@ const WrapScrollLabel = styled(FlexRowDiv)`
   justify-content: space-between;
 `;
 
-const  LocationLogin=styled.div`
-margin-left: 63.92px;
-cursor: pointer;
-`
+const LocationLogin = styled.div`
+  margin-left: 63.92px;
+  cursor: pointer;
+`;

@@ -3,13 +3,12 @@ import styled from 'styled-components';
 
 interface IProps{
   text:string;
-  fontSize?:Number;
+  fontSize?:number;
   color?:string;
 }
 
 
 const Label = ({text:t,fontSize:f,color:c}:IProps) => {
-  console.log(f)
   const fontConverter=f+"px";
 
   return (
