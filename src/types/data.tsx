@@ -28,18 +28,19 @@ export type blogData = {
   secondBlog?: blogDetail;
 };
 
-type stackDetail = {
+export type stackDetail = {
   stackName: string;
+  stackURL: string;
   stackEXP?: "Tried" | "Experiencer" | "Expert" | "Master";
 };
 
-type blogDetail = {
+export type blogDetail = {
   blogName: string;
   blogReason: string;
   blogURL: string;
 };
 
-type projectDetail = {
+export type projectDetail = {
   projectName: string;
   projectPeriod: string;
   projectStack: string[];

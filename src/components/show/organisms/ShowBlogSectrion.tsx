@@ -1,10 +1,8 @@
-import React from 'react'
-import { Wrap } from '../../../styles/common'
+import React from "react";
+import { Wrap } from "../../../styles/common";
 
 const ShowBlogSectrion = () => {
-  return (
-    <Wrap>ShowBlogSectrion</Wrap>
-  )
-}
+  return <Wrap id="Blogs">ShowBlogSectrion</Wrap>;
+};
 
-export default ShowBlogSectrion
+export default ShowBlogSectrion;

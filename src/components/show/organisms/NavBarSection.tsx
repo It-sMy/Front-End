@@ -11,16 +11,16 @@ import Nav from "react-bootstrap/Nav";
 const NavBarSection = () => {
   const expand = "lg";
   const scrollLabelList: Array<string> = [
-    "profile",
+    "Profile",
     "Skills",
     "Blogs",
     "Project",
   ];
   return (
     <>
-      <Navbar key={expand} expand={expand} sticky="top">
+      <NavbarC key={expand} expand={expand} sticky="top">
         <Container>
-          <Navbar.Brand href="#home">
+          <Navbar.Brand href="#Intro">
             <Logo></Logo>
           </Navbar.Brand>
 
@@ -44,9 +44,14 @@ const NavBarSection = () => {
             </Nav>
           </Navbar.Collapse>
         </Container>
-      </Navbar>
+      </NavbarC>
     </>
   );
 };
+
+const NavbarC = styled(Navbar)`
+  background-color:#fff;
+
+`
 
 export default NavBarSection;

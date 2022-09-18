@@ -6,7 +6,7 @@ import { Wrap } from "../../../styles/common";
 
 const ShowProfileSection = () => {
   return (
-    <Wrap>
+    <Wrap id="Profile">
       <Row >
         <Col lg={3}>
           <Col lg={12}>이름</Col>

@@ -3,7 +3,7 @@ import { Wrap } from '../../../styles/common'
 
 const ShowProjectSection = () => {
   return (
-    <Wrap>ShowProjectSection</Wrap>
+    <Wrap id="Project">ShowProjectSection</Wrap>
   )
 }
 

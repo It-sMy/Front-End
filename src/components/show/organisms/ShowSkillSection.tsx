@@ -1,10 +1,8 @@
-import React from 'react'
-import { Wrap } from '../../../styles/common'
+import React from "react";
+import { Wrap } from "../../../styles/common";
 
 const ShowSkillSection = () => {
-  return (
-    <Wrap>ShowSkillSection</Wrap>
-  )
-}
+  return <Wrap id="Skills">ShowSkillSection</Wrap>;
+};
 
-export default ShowSkillSection
+export default ShowSkillSection;
