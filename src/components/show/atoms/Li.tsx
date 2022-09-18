@@ -7,7 +7,7 @@ interface IProps {
   children:JSX.Element,
 }
 const Li = ({ fontSize: f, color: c ,children}: IProps) => {
-    console.log(f,"durl")
+   
   return <MyDot fontSize={f} color={c}>{children}</MyDot>;
 };
 

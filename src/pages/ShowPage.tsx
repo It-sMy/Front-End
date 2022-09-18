@@ -1,4 +1,5 @@
 import React from 'react'
+import Card from '../components/show/atoms/Card'
 import GageBar from '../components/show/atoms/GageBar'
 import Image from '../components/show/atoms/Image'
 import Label from '../components/show/atoms/Label'
@@ -17,6 +18,7 @@ const ShowPage = () => {
     <Header></Header>
     <SkillStack stackExp='Master'></SkillStack>
     <UnderLine text='FrontEnd ' fontSize={23} lineHeight={15} lineWidth={159} lineColor="#FEFFC6" xaxis={-10} yaxis={15}></UnderLine>
+    <Card width={212} height={111}></Card>
     <Body/>
     
     </>
