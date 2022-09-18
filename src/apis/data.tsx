@@ -1,26 +1,34 @@
 import { db, storage } from "../firebase";
-import {
-  collection,
-  doc,
-  getDoc,
-  getDocs,
-  addDoc,
-  updateDoc,
-  deleteDoc,
-  setDoc,
-} from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
-import {
-  blogData,
-  DataState,
-  DataType,
-  introData,
-  profileData,
-  projectData,
-  skillData,
-} from "../types/data";
+import { DataState, DataType } from "../types/data";
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 
 const auth = getAuth();
+
+export const uploadImage = async (file: File) => {
+  //회원 검증
+  const UUID = auth.currentUser?.uid;
+  if (UUID) {
+    //저장소 지정
+    const ImagesRef = ref(storage, `users/${UUID}:&^@${file.name}`);
+
+    //업로드
+    await uploadBytes(ImagesRef, file).then(() => {
+      alert("이미지 업로드가 완료되었습니다.");
+    });
+
+    //이미지 URL 추출
+    await getDownloadURL(ImagesRef).then((url) => {
+
+      //url 제공
+      return url;
+    });
+    
+  } else {
+    alert("로그인을 해주세요.");
+  }
+};
 
 export const setData = async (data: DataState, Type: DataType) => {
   const UUID = auth.currentUser?.uid;
@@ -47,7 +55,6 @@ export const getData = async (Type: DataType) => {
       console.log("No such document!");
       alert("저장된 데이터가 없습니다. 새로 작성해주세요.");
     }
-
   } else {
     alert("로그인을 해주세요.");
   }
