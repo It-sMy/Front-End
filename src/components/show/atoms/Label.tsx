@@ -9,7 +9,6 @@ interface IProps{
 
 
 const Label = ({text:t,fontSize:f,color:c}:IProps) => {
-  console.log(f)
   const fontConverter=f+"px";
 
   return (
