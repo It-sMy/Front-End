@@ -10,7 +10,7 @@ const updateBlog = (blogData: blogData) => {
 export default function reducer(state = initialState, action: AnyAction) {
   switch (action.type) {
     case "blog/UPDATE": {
-      return { ...state, blog: action.data };
+      return { ...action.data };
     }
     default:
       return state;

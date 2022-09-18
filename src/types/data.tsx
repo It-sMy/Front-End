@@ -1,10 +1,11 @@
-export type DataState = {
-  intro?: introData;
-  profile?: profileData;
-  skill?: skillData;
-  project?: projectData;
-  blog?: blogData;
-};
+export type DataState =
+  | introData
+  | profileData
+  | skillData
+  | projectData
+  | blogData;
+
+export type DataType = "Intro" | "Profile" | "Skill" | "Project" | "Blog";
 
 export type introData = {
   name?: string;

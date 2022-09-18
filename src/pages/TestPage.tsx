@@ -1,6 +1,6 @@
 import React from "react";
 import { googleLogout, googleSessionLogin } from "../apis/auth";
-import { setIntroData } from "../apis/data";
+import { getData, setData} from "../apis/data";
 import { useAppDispatch } from "../redux/hooks";
 import { userDataCheckFB } from "../redux/modules/users";
 import { introData } from "../types/data";
@@ -22,7 +22,8 @@ const TestPage = () => {
     <div>
       <button onClick={clickToLogin}>구글 로그인 됨?</button>
       <button onClick={() => googleLogout()}>구글 로그아웃 됨?</button>
-      <button onClick={() => setIntroData(tmpData)}>글 작성 됨?</button>
+      <button onClick={() => setData(tmpData,"Intro")}>글 작성 됨?</button>
+      <button onClick={() => getData("Intro")}>글 불러오기 됨?</button>
     </div>
   );
 };

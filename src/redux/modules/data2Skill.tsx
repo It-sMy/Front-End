@@ -10,7 +10,7 @@ const updateSkill = (skillData: skillData) => {
 export default function reducer(state = initialState, action: AnyAction) {
   switch (action.type) {
     case "skill/UPDATE": {
-      return { ...state, skill: action.data };
+      return { ...action.data };
     }
     default:
       return state;
