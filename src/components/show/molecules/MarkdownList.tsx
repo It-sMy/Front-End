@@ -6,7 +6,7 @@ import Li from '../atoms/Li';
 
 
 interface Iprops{
-    fontSize?:Number;
+    fontSize?:number;
     text:string;
     width:Number;
     color?:string;
