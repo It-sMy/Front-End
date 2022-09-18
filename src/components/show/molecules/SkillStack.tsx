@@ -9,8 +9,8 @@ interface IProps{
 
 }
 
-const SkillStack = (props:IProps) => {
-    const {stackExp}=props
+const SkillStack = ({stackExp}:IProps) => {
+    
 
   return (
     <Wrap>

@@ -1,29 +1,36 @@
 import React from 'react'
-import Card from '../components/show/atoms/Card'
-import GageBar from '../components/show/atoms/GageBar'
-import Image from '../components/show/atoms/Image'
-import Label from '../components/show/atoms/Label'
-import MarkdownList from '../components/show/molecules/MarkdownList'
-import SkillStack from '../components/show/molecules/SkillStack'
-import UnderLine from '../components/show/molecules/UnderLine'
-import Body from '../components/show/templates/Body'
-import Header from '../components/show/templates/Header'
 
+import Container from "react-bootstrap/Container";
 
+import Body from "../components/show/templates/Body";
+import Footer from "../components/show/templates/Footer";
+import Header from "../components/show/templates/Header";
 
+import ShowIntroSection from "../components/show/organisms/ShowIntroSection";
+import ShowProfileSection from "../components/show/organisms/ShowProfileSection";
+import ShowSkillSection from "../components/show/organisms/ShowSkillSection";
+import ShowProjectSection from "../components/show/organisms/ShowProjectSection";
+import ShowBlogSectrion from "../components/show/organisms/ShowBlogSectrion";
+import { ThickBr } from "../styles/common";
 
 const ShowPage = () => {
   return (
     <>
-    <Header></Header>
-    <SkillStack stackExp='Master'></SkillStack>
-    <UnderLine text='FrontEnd ' fontSize={23} lineHeight={15} lineWidth={159} lineColor="#FEFFC6" xaxis={-10} yaxis={15}></UnderLine>
-    <Card width={212} height={111}></Card>
-    <Body/>
-    
+      <Container>
+        <Header>
+          <ThickBr />
+        </Header>
+        <Body>
+          <ShowIntroSection />
+          <ShowProfileSection />
+          <ShowSkillSection />
+          <ShowProjectSection />
+          <ShowBlogSectrion />
+        </Body>
+        <Footer></Footer>
+      </Container>
     </>
-    
-  )
-}
+  );
+};
 
-export default ShowPage
+export default ShowPage;
