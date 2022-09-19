@@ -1,7 +1,7 @@
 import { type } from '@testing-library/user-event/dist/type';
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { setIntroData } from '../../apis/data';
+import { setData } from '../../apis/data';
 import { introData } from '../../types/data';
 
 export type changeSectionProps = {setThisState:any}
@@ -37,7 +37,7 @@ const IntroSection = ({setThisState}:changeSectionProps) => {
   }, [inputIntroSection])
 
   const clickIntroSendBtn = async() => {
-    await setIntroData(inputIntroSection)
+    await setData(inputIntroSection,'Intro')
     setThisState('Profile');
   }
 

@@ -26,7 +26,7 @@ const CreatePage = () => {
       }
 
       {
-        thisState == 'Stack'?
+        thisState == 'Skill'?
         (<SkillSection setThisState={setThisState}/>):null
       }
 

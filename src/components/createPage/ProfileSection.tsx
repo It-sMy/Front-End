@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { changeSectionProps } from './IntroSection';
-import { setProfileData } from '../../apis/data';
+import { setData } from '../../apis/data';
 import { profileData } from '../../types/data';
 
 const ProfileSection = ({setThisState}:changeSectionProps) => {
@@ -61,8 +61,8 @@ const ProfileSection = ({setThisState}:changeSectionProps) => {
     }, [profileSection])
 
     const clickProfileSendBtn = async() => {
-        await setProfileData(profileSection)
-        setThisState('Stack');
+        await setData(profileSection,'Profile')
+        setThisState("Skill");
     }
 
   return (

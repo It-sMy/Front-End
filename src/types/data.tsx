@@ -1,10 +1,11 @@
-export type DataState = {
-  intro?: introData;
-  profile?: profileData;
-  skill?: skillData;
-  project?: projectData;
-  blog?: blogData;
-};
+export type DataState =
+  | introData
+  | profileData
+  | skillData
+  | projectData
+  | blogData;
+
+export type DataType = "Intro" | "Profile" | "Skill" | "Project" | "Blog";
 
 export type introData = {
   name?: string;
@@ -27,18 +28,19 @@ export type blogData = {
   secondBlog?: blogDetail;
 };
 
-type stackDetail = {
+export type stackDetail = {
   stackName: string;
-  stackEXP?: "tried" | "experiencer" | "expert" | "master";
+  stackURL: string;
+  stackEXP?: "Tried" | "Experiencer" | "Expert" | "Master";
 };
 
-type blogDetail = {
+export type blogDetail = {
   blogName: string;
   blogReason: string;
   blogURL: string;
 };
 
-type projectDetail = {
+export type projectDetail = {
   projectName: string;
   projectPeriod: string;
   projectStack: string[];

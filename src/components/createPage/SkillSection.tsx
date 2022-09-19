@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { changeSectionProps } from './IntroSection';
-import { setSkillData } from '../../apis/data';
+import { setData } from '../../apis/data';
 import { skillData } from '../../types/data';
 
 const SkillSection = ({setThisState}:changeSectionProps) => {
@@ -49,7 +49,7 @@ const SkillSection = ({setThisState}:changeSectionProps) => {
     }, [skillSection,techStackLists])
 
     const clickSkillSendBtn = async() => {
-        await setSkillData(skillSection)
+        await setData(skillSection,"Skill")
         setThisState('Project');
     }
 

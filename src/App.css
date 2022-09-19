@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+
+#Intro {
+  min-height: 429px;
+}
+
+#Skills {
+  background-color: #ebf1f3;
+}
+
+#Project {
+  background-color: #fafafa;
+}
+
+#Blogs {
+  background-color: #1B1F23;
+}

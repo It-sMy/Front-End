@@ -10,7 +10,7 @@ const updateIntro = (introData: introData) => {
 export default function reducer(state = initialState, action: AnyAction) {
   switch (action.type) {
     case "intro/UPDATE": {
-      return { intro: action.data };
+      return { ...action.data };
     }
     default:
       return state;

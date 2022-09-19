@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { changeSectionProps } from './IntroSection';
-import { setProjectData } from '../../apis/data';
+import { setData } from '../../apis/data';
 import { projectData } from '../../types/data';
 
 const ProjectSection = ({setThisState}:changeSectionProps) => {
@@ -49,7 +49,7 @@ const ProjectSection = ({setThisState}:changeSectionProps) => {
     }, [projectSection])
 
     const clickProjectSendBtn = async() => {
-        // await setProjectData(projectSection)
+        await setData(project,'Project')
         setThisState('Project');
     }
 
