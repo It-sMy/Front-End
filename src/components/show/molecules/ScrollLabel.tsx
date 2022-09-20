@@ -1,7 +1,6 @@
 import React, { SetStateAction } from "react";
 import { text } from "stream/consumers";
 import styled from "styled-components";
-import { JsxEmit } from "typescript";
 import Label from "../atoms/Label";
 
 interface Iprops {

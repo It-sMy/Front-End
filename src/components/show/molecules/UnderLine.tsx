@@ -1,8 +1,8 @@
 import React from "react";
-import Line from "../atoms/Line";
-import Label from "../atoms/Label";
 import styled from "styled-components";
-import { FlexColumnDiv } from "../../../styles/common";
+//component
+import Line from "../atoms/Line";
+
 
 interface IProps {
   fontSize?: number;

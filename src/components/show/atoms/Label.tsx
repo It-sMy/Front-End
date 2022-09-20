@@ -9,7 +9,7 @@ interface IProps{
 
 
 const Label = ({text:t,fontSize:f,color:c}:IProps) => {
-  const fontConverter=f+"px";
+  const fontConverter:string=f+"px";
 
   return (
     <Mylabel fontSize={fontConverter} color={c}>{t}</Mylabel>
