@@ -1,41 +1,28 @@
-import React, { useEffect, useState } from 'react'
-import styled from 'styled-components';
-import IntroSection from '../components/createPage/IntroSection';
-import ProfileSection from '../components/createPage/ProfileSection';
-import ProjectSection from '../components/createPage/ProjectSection';
-import SkillSection from '../components/createPage/SkillSection';
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
+import IntroSection from "../components/createPage/IntroSection";
+import ProfileSection from "../components/createPage/ProfileSection";
+import ProjectSection from "../components/createPage/ProjectSection";
+import SkillSection from "../components/createPage/SkillSection";
 
 const CreatePage = () => {
+  const [thisState, setThisState] = useState("Intro");
 
-  const [thisState,setThisState] = useState('');
-
-  useEffect(()=>{
-    console.log('유즈이펙트',thisState)
-  },[thisState])
+  useEffect(() => {
+    console.log("유즈이펙트", thisState);
+  }, [thisState]);
 
   return (
     <div>
-      {
-        thisState == 'Intro' || thisState == ''?
-        (<IntroSection setThisState={setThisState}/>):null
-      }
+      {thisState == "Intro" && <IntroSection setThisState={setThisState} />}
 
-      {
-        thisState == 'Profile'?
-        (<ProfileSection setThisState={setThisState}/>):null
-      }
+      {thisState == "Profile" && <ProfileSection setThisState={setThisState} />}
 
-      {
-        thisState == 'Skill'?
-        (<SkillSection setThisState={setThisState}/>):null
-      }
+      {thisState == "Skill" && <SkillSection setThisState={setThisState} />}
 
-      {
-        thisState == 'Project'?
-        (<ProjectSection setThisState={setThisState}/>):null
-      }
+      {thisState == "Project" && <ProjectSection setThisState={setThisState} />}
     </div>
-  )
-}
+  );
+};
 
 export default CreatePage;
