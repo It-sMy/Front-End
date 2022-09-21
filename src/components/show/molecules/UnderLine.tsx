@@ -7,6 +7,7 @@ import Line from "../atoms/Line";
 interface IProps {
   fontSize?: number;
   fontColor?: string;
+  fontWeight?:string;
   lineWidth: number;
   text: string;
   lineHeight: number;
@@ -18,6 +19,7 @@ interface IProps {
 const UnderLine = ({
   fontSize,
   fontColor,
+  fontWeight,
   text,
   lineWidth,
   lineHeight,
@@ -28,6 +30,8 @@ const UnderLine = ({
     const theme:object={
 fontSize,
 fontColor,
+fontWeight,
+zIndex:"2"
     }
   return (
     <Wrap>
@@ -50,6 +54,6 @@ const LocationLine=styled.div<{xaxis:number,yaxis:number}>`
 position: absolute;
 top: ${(props)=>props.yaxis+"px"};
 left: ${(props)=>props.xaxis+"px"};
-z-index: -1;
+z-index: 0;
 
 `

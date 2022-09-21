@@ -19,7 +19,7 @@ export default SkillCardMemo;
 
 const LocationLabel = styled.div`
   width: fit-content;
-  margin-left: 7px;
-  margin-top: 7px;
+  transform: translate(7px, 7px);
+
   font-size: 12px;
 `;

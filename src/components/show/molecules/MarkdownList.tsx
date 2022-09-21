@@ -8,14 +8,13 @@ import Li from '../atoms/Li';
 interface Iprops{
     fontSize?:number;
     text:string;
-    width:Number;
     color?:string;
   
 }
 
-const MarkdownList = ({fontSize,text,width,color,}:Iprops) => {
+const MarkdownList = ({fontSize,text,color,}:Iprops) => {
   return (
-    <Wrap width={150}>
+    <Wrap >
         <Li fontSize={fontSize} ><Label text={text} fontSize={fontSize}></Label></Li>
     
     </Wrap>
@@ -24,6 +23,6 @@ const MarkdownList = ({fontSize,text,width,color,}:Iprops) => {
 
 export default MarkdownList
 
-const Wrap=styled(FlexRowDiv)<{width:Number}>`
-width: ${(props)=>props.width.toString()+"px"};
+const Wrap=styled(FlexRowDiv)`
+width: fit-content;
 `
