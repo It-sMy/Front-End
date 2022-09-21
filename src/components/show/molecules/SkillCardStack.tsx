@@ -7,7 +7,7 @@ import SkillStack from "./SkillStack";
 
 const SkillCardStack = () => {
   return (
-    <div>
+   
       <Card width={212} height={250}>
         <div>
           <LocationLabel>
@@ -24,17 +24,18 @@ const SkillCardStack = () => {
             <SkillStack stackExp="Experiencer"></SkillStack>
             <SkillStack stackExp="Expert"></SkillStack>
             <SkillStack stackExp="Master"></SkillStack>
+            <SkillStack stackExp="Master"></SkillStack>
           </LocationSkillStacks>
         </div>
       </Card>
-    </div>
+   
   );
 };
 
 export default SkillCardStack;
 
 const LocationLabel = styled.div`
-  margin-top: 17px;
+transform: translate(0px, 16px);
 `;
 const LocationSkillStacks = styled(FlexCenterDiv)`
   flex-direction: column;

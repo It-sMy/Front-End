@@ -4,20 +4,21 @@ import dummy from"../../../assets/images/dummy24px.png"
 
 interface IProps{
 imageUrl?:string,
-size?:number
+width?:number,
+height?:number
 }
 const Image = (props:IProps) => {
-    const {imageUrl ,size}=props;
+    const {imageUrl ,width,height}=props;
     
     console.log(typeof(dummy))
   return (
-    <MyImg src={imageUrl?imageUrl:dummy} size={size} alt="없음"></MyImg>
+    <MyImg src={imageUrl?imageUrl:dummy} width={width} height={height} alt="없음"></MyImg>
   )
 }
 
 export default Image
 
 const MyImg=styled.img<IProps>`
-   ${(props)=>props.size&&`width:${props.size}`+"px;"}
-   ${(props)=>props.size&&`height:${props.size}`+"px;"}
+   ${(props)=>props.width&&`width:${props.width}`+"px;"}
+   ${(props)=>props.height&&`height:${props.height}`+"px;"}
 `
