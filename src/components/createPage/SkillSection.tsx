@@ -1,13 +1,23 @@
 import React, { useEffect, useState } from 'react';
+import { changeSectionProps } from './IntroSection';
+import { setData } from '../../apis/data';
+import { skillData } from '../../types/data';
 
-const SkillSection = () => {
+const SkillSection = ({setThisState}:changeSectionProps) => {
 
-    const [skillSection,setSkillSection] = useState<any>({
+    const [techStackLists,setTechStackList] = useState<any>({
         s3:'',
         react:'',
         redux:'',
         timeScript:'',
-        axios:'',
+        axios:''
+    });
+
+    const [ectStackLists,setEctStackLists] = useState<any>({});
+
+    const [skillSection,setSkillSection] = useState<skillData>({
+        techStackList:[],
+        etcStack:[]
     });
 
     const s3_ref = React.useRef(null);
@@ -16,25 +26,32 @@ const SkillSection = () => {
     const timeScript_ref = React.useRef(null);
     const axios_ref = React.useRef(null);
 
-    const {s3, react, redux, timeScript, axios} = skillSection;
+    const {s3, react, redux, timeScript, axios} = techStackLists;
 
     const ChangeInputSkill = (e:any) => {
         const { value, name } = e.target; // 우선 e.target 에서 name 과 value 를 추출
         const dataTitleAndContent = {
-            ...skillSection, // 기존의 inputValue 객체를 복사한 뒤
+            ...techStackLists, // 기존의 inputValue 객체를 복사한 뒤
             [name]: value // name 키를 가진 값을 value 로 설정
         }
 
-        setSkillSection(dataTitleAndContent)
+        setTechStackList(dataTitleAndContent)
+        setSkillSection({techStackList:[{...techStackLists}],etcStack:[]})
         // dispatch(selectWrite({ [name]: value }))
 
-        console.log(skillSection)
+        console.log(techStackLists)
         console.log(name)
     }
 
     useEffect(() => {
+        console.log(techStackLists, '마지막 e 안찍힘 방지')
         console.log(skillSection, '마지막 e 안찍힘 방지')
-    }, [skillSection])
+    }, [skillSection,techStackLists])
+
+    const clickSkillSendBtn = async() => {
+        await setData(skillSection,"Skill")
+        setThisState('Project');
+    }
 
   return (
     <div>
@@ -53,7 +70,7 @@ const SkillSection = () => {
       <input type='text' placeholder='axios' ref={axios_ref}
       name='axios' value={axios} onChange={ChangeInputSkill}/>
       
-      <button>입력</button>
+      <button onClick={clickSkillSendBtn}>입력</button>
     </div>
   )
 }
