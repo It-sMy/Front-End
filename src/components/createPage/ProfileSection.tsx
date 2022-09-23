@@ -20,7 +20,7 @@ const ProfileSection = ({ setThisState }: changeSectionProps) => {
   const phoneNumber_ref = useRef(null);
   const eMail_ref = useRef(null);
 
-  const PreviewProfileImg = async (e: any) => {
+  const PreviewProfileImg = (e: any) => {
     const correctForm = /(.*?)\.(jpg|jpeg|png|gif|bmp)$/;
     if (e.target.files[0]?.size > 3 * 1024 * 1024) {
       alert("파일이 너무 큽니다.");
@@ -31,7 +31,7 @@ const ProfileSection = ({ setThisState }: changeSectionProps) => {
     }
 
     console.log(e.target.files[0]);
-    const x = await uploadImage(e.target.files[0]);
+    const x = uploadImage(e.target.files[0]);
     console.log(x);
 
     setProfileSection({

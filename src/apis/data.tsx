@@ -2,7 +2,7 @@ import { db, storage } from "../firebase";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 import { DataState, DataType } from "../types/data";
-import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
+import { getDownloadURL, ref, uploadBytes, uploadBytesResumable } from "firebase/storage";
 
 const auth = getAuth();
 
@@ -11,22 +11,23 @@ export const uploadImage = async (file: File) => {
   const UUID = auth.currentUser?.uid;
   if (UUID) {
     //저장소 지정
+    console.log(file)
     const ImagesRef = ref(storage, `users/${UUID}:&^@${file.name}`);
-
+    console.log(ImagesRef)
     //업로드
-    await uploadBytes(ImagesRef, file).then(() => {
-      alert("이미지 업로드가 완료되었습니다.");
-    });
+    await uploadBytes(ImagesRef, file)
+      .then(() => {
+        alert("이미지 업로드가 완료되었습니다.");
+      })
+      .catch((err) => console.log(err, "안돼"));
 
     //이미지 URL 추출
     await getDownloadURL(ImagesRef).then((url) => {
-
-      //url 제공
       return url;
     });
-    
   } else {
     alert("로그인을 해주세요.");
+    return;
   }
 };
 

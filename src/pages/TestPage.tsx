@@ -1,6 +1,6 @@
 import React from "react";
 import { googleLogout, googleSessionLogin } from "../apis/auth";
-import { getData, setData } from "../apis/data";
+import { getData, setData, uploadImage } from "../apis/data";
 import { useAppDispatch } from "../redux/hooks";
 import { userDataCheckFB } from "../redux/modules/users";
 import { introData } from "../types/data";
@@ -39,6 +39,7 @@ console.log(url)
       <button onClick={() => googleLogout()}>구글 로그아웃 됨?</button>
       <button onClick={() => setData(tmpData, "Intro")}>글 작성 됨?</button>
       <button onClick={() => getData("Intro")}>글 불러오기 됨?</button>
+      <input type="file" onChange={(e:any)=>{uploadImage(e.target.files[0])}}/>
       
     </div>
   );
