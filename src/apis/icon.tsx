@@ -1,6 +1,4 @@
-import { stackDetail } from "../types/data";
-
-export const getIconURL = (name: string): stackDetail["stackURL"] => {
+export const getIconURL = async (name: string) => {
   //visualstudiocode
   let tmpName = name.toLowerCase().split(" ");
 
@@ -15,12 +13,19 @@ export const getIconURL = (name: string): stackDetail["stackURL"] => {
   iconImportNameList.splice(0, 1, iconImportNameList[0].toUpperCase());
 
   var iconURLName = tmpNameUpper.join("%20");
-  var iconImportName:any = iconImportNameList.join("").replaceAll(" ", "");
+  var iconImportName: any = iconImportNameList.join("").replaceAll(" ", "");
 
   //URL 서칭용과 Import용
   console.log(iconURLName, iconImportName);
 
-  var url = `https://img.shields.io/badge/-EBF1F3.svg?&style=for-the-badge&logo=${iconURLName}&logoColor=333`;
-  console.log(url)
+  const callImport = async () => {
+    let x: any = await import(`simple-icons/icons`);
+    const colorHex = x[`si${iconImportName}`].hex;
+    return colorHex;
+  };
+
+  const colorHex = await callImport();
+
+  var url = `https://img.shields.io/badge/-EBF1F3.svg?&style=for-the-badge&logo=${iconURLName}&logoColor=${colorHex}`;
   return url;
 };
